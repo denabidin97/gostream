@@ -861,4 +861,16 @@ window.addEventListener('DOMContentLoaded', async () => {
             }
         }
     }
+    // 🔄 AUTO REFRESH JADWAL SETIAP 5 MENIT (300000 ms)
+setInterval(async () => {
+  console.log("⏱️ Memeriksa pembaruan jadwal pertandingan...");
+  try {
+    await loadEvents();
+    console.log("✅ Jadwal berhasil diperbarui otomatis!");
+  } catch (error) {
+    console.error("❌ Gagal memperbarui jadwal otomatis:", error);
+  }
+}, 300000); // 5 menit
+
 });
+
